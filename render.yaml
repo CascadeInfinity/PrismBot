@@ -1,0 +1,19 @@
+services:
+  - type: worker
+    name: prism-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python prism_bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: BTC_ADDRESS
+        value: bc1qdtngv6cwgh502pf726lef6632cza9d5s54x56m
+      - key: DATABASE_URL
+        fromDatabase:
+          name: prism-db
+          property: connectionString
+
+databases:
+  - name: prism-db
+    plan: free

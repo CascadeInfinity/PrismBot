@@ -1,0 +1,5 @@
+python-telegram-bot==22.8
+requests
+psycopg2-binary
+flask
+gunicorn
